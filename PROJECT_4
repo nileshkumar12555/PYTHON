@@ -1,0 +1,64 @@
+#create  Rock,Paper,Scissor Game using Random Module in Python
+import random
+l=["rock","scissor","paper"]
+'''
+rock vs paper-> paper wins
+rock vs scissor-> scissor wins.
+'''
+
+while True:
+    ccount=0
+    ucount=0
+    unchoice=int(input('''
+    Game Satrt.....
+    1 Yes 
+    2 No | Exit
+     
+     '''))
+    if unchoice==1:
+        for a in range(1,6):
+            userInput=int(input(''' 
+            1 Rock
+            2 Scissor
+            3 Paper
+            
+            '''))
+            if userInput==1:
+                uchoice="rock"
+            elif userInput==2:
+                unchoice="scissor"
+            elif userInput == 3:
+                unchoice = "paper"
+            Cchoice=random.choice(l)
+            if Cchoice==unchoice:
+                print("Computer  Value ",Cchoice)
+                print("User value",unchoice)
+                print("Game Draw")
+                ucount=ucount+1
+                ccount=ccount+1
+            elif (unchoice=="rock" and Cchoice=="scissor") or (unchoice
+              =="paper" and Cchoice=="rock") or (unchoice=="scissor"
+              and Cchoice=="paper"):
+                print("Computer  Value ", Cchoice)
+                print("User value", unchoice)
+                print("You Win")
+                ucount = ucount + 1
+            else:
+                print("Computer  Value ", Cchoice)
+                print("User value", unchoice)
+                print("You Win")
+                ccount = ccount + 1
+        if ucount==ccount:
+            print("Final Game Draw....")
+            print("User Score",ucount)
+            print("Computer Sourse ",ccount)
+        elif ucount>ccount:
+            print("Final You Win The game..")
+            print("User Score",ucount)
+            print("Computer Score",ccount)
+        else:
+            print("Final Computer Win The game....")
+            print("User Score", ucount)
+            print("Computer Score", ccount)
+    else:
+        break
